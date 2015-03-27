@@ -1,0 +1,233 @@
+/*
+Welcome to Custom CSS!
+*/
+
+/* =Variables
+----------------------------------------------- */
+
+$white: #fff;
+$black: #000;
+$grey: #7f8c8d;
+$medgrey: #6C7A89;
+$yellow: #f1c40f;
+$orange: #f39c12;
+$blue: #ececec;
+
+
+/* =Mixins
+----------------------------------------------- */
+
+@mixin cover {
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	height: 100%;
+}
+
+
+
+/* =Layout
+----------------------------------------------- */
+
+.site {
+	max-width: 100%;
+	width: 100%;
+	overflow: hidden;
+}
+
+.entry-header, .entry-content, .entry-summary, .entry-meta {
+	max-width: 1170px;
+}
+
+#content {
+	background: $blue;
+}
+
+
+
+/* =Header
+----------------------------------------------- */
+
+.site-header {
+  	background-size: auto;
+	background: url(header-bg.png) no-repeat center center;
+	@include cover;
+	border-bottom: 4px solid darken( $grey , 30% );
+	height: 654px;
+	
+	.home-link {
+		max-width: 1170px;
+		min-height: 300px;
+		padding: 10px 0;
+		
+		&:hover {
+			text-decoration: none;
+		}
+	
+		&:after {
+			content: url(header-items1.png);
+			left: 50%;
+			margin-top: -529px;
+			margin-left: -585px;
+			position: absolute;
+			z-index: 9;
+		}
+		
+		.site-title, .site-description {
+			color: $orange;
+			text-align: center;
+			text-shadow: 2px 2px 2px $black;
+		}
+
+		.site-description {
+			font-size: 2.6em;
+			font-weight: 600;
+	
+			&:after {
+				content : url(love-logo1.png);
+				display: block;
+		  		margin-top: 0.67em;
+				z-index: 999;
+			}
+		}
+	}
+	
+	.navbar {
+		background-color: darken( $grey , 30% );
+		max-width: 100%;
+		position: fixed;
+		top: 0;
+		z-index: 999;
+	
+		.admin-bar & {
+			top: 32px;
+		}
+	
+		.main-navigation {
+			max-width: 1170px;
+		}
+		
+		.navigation a {
+			color: $white;
+			font-size: 1.2em;
+		}
+	}
+}
+
+/* =Content
+----------------------------------------------- */
+
+.entry-title {
+    font-size: 36px;
+}
+
+.entry-content {
+	font-size: 1.14em;
+	line-height: 1.7;
+}
+
+	
+/* =Footer
+----------------------------------------------- */
+	
+#colophon {
+	background-color: $medgrey;
+	color: $white;
+	
+	a {color: $white;}
+}
+
+
+	
+/* =Responsive
+----------------------------------------------- */
+
+/* ipad landscape */
+@media screen and (max-width: 1024px) {
+	.site-header .home-link {
+    	max-width: 100%;
+	}
+
+	.hentry {
+		padding: 40px;
+	}
+}
+
+/* ipad portrait */
+@media screen and (max-width: 768px) {
+}
+
+/* iPhone 6 Ginormous landscape */
+@media screen and (max-width: 736px) {
+	.site-header {
+		height: 640px;
+		padding-top: 50px;
+	}
+
+	.site-title {
+		font-size: 46px;
+	}
+}
+
+/* iPhone 6 landscape */
+@media screen and (max-width: 667px) {
+  // non-responsive captions fix
+  figure {width: 100% !important;}
+	.menu-toggle, .menu-toggle:hover, .menu-toggle:focus, .menu-toggle:active {
+		color: #fff;
+	}
+}
+
+/* Android (Nexus 4) landscape  */
+@media screen and (max-width: 600px) {
+}
+
+/* iPhone 6 Ginormous portrait */
+@media screen and (max-width: 414px) {
+	
+	.site-header {
+		height: 685px;
+		
+		.home-link:after {
+			display: none;
+		}
+	}
+
+	.hentry {
+		padding: 1em 0.4em;
+	}
+}
+
+/* Android (Nexus 4) portrait  */
+@media screen and (max-width: 384px) {
+	.site-header .home-link .site-description:after {content: url(love-logo-small.png);}
+	.site-header {
+		height: 590px;
+	}
+}
+
+/* iphone 6 portrait */
+@media screen and (max-width: 375px) {
+	.site-header .home-link .site-description:after {content: url(love-logo-tiny.png);}
+
+	.site-header .home-link .site-description {
+		font-size: 2.4em;
+	}
+
+	.site-header {
+		height: 530px;
+	}
+	
+	.site-description {
+  		clip: no;
+		position: relative;
+	}
+
+	.hentry {
+		padding: 1em 0;
+	}
+}
+
+/* iphone portrait 4/5 */
+@media screen and (max-width: 320px) {}
